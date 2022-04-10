@@ -18,9 +18,9 @@ jobs:
     - name: check cleanliness
       run: |
           FILE=$(find . -type f -name "#*#" -o -name "*-" -o -iname "*pain_au_chocolat*" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov")
-          echo "::error file=${FILE},title=Unwanted file detected:::${FILE}"
-          if [ "FILE" ]; then
-          exit 1
+          if find . -type f -name "#*#" -o -name "*-" -o -iname "*pain_au_chocolat*" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov"
+          then: exit 1
+          else: echo "::error file=${FILE},title=Unwanted file detected:::${FILE}"
           fi
 
   check_program_compilation:
