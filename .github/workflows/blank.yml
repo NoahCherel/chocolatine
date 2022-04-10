@@ -18,7 +18,7 @@ jobs:
     - name: check cleanliness
       run: |
           FILE=$(find . -type f -name "#*#" -o -name "*-" -o -iname "*pain_au_chocolat*" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov")
-          if test $(find . -type f -name "#*#" -o -name "*-" -o -iname "*pain_au_chocolat*" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov") -eq 0
+          if test $(find . -type f -name "#*#" -o -name "*-" -o -iname "*pain_au_chocolat*" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov" | wc -c) -eq 0
           then
           echo "has no value"
           else
