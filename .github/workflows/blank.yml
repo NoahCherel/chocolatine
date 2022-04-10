@@ -19,7 +19,9 @@ jobs:
       run: |
           FILE=$(find . -type f -name "#*#" -o -name "*-" -o -iname "*pain_au_chocolat*" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov")
           echo "::error file=${FILE},title=Unwanted file detected:::${FILE}"
+          if [ "FILE" ]; then
           exit 2
+          fi
 
   check_program_compilation:
     name: check_program_compilation
