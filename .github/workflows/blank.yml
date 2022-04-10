@@ -20,7 +20,7 @@ jobs:
           FILE=$(find . -type f -name "#*#" -o -name "*-" -o -iname "*pain_au_chocolat*" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov -o -path "*/tmp/*"")
           if test $(find . -type f -name "#*#" -o -name "*-" -o -iname "*pain_au_chocolat*" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gcno" -o -name "*.gcda" -o -name "*.gcov" -o -path "*/tmp/*" | wc -c) -eq 0
           then
-          echo "has no value"
+          echo "has no error"
           else
           echo "::error file=${FILE},title=Unwanted file detected:::${FILE}"
           exit 1
