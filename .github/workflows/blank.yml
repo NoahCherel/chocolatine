@@ -15,6 +15,8 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
+    - name: check cleanliness
+      run: find . -print
 
   check_program_compilation:
     name: check_program_compilation
@@ -31,6 +33,7 @@ jobs:
       - name: make clean
         run: |
           make clean
+  
   run_tests:
     name: run_tests
     runs-on: ubuntu-latest
@@ -43,6 +46,7 @@ jobs:
       - name: Run tests
         run: |
           timeout 2m make test_run
+  
   push_to_mirror:
     name: push_to_mirror
     runs-on: ubuntu-latest
