@@ -10,14 +10,14 @@ env:
 jobs:
   check_repository_cleanliness:
     name: "Check repository cleanliness"
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, macos-latest, windows-latest]
     steps:
     - name: checkout
       uses: "actions/checkout@check_repository_cleanliness"
 
   check_program_compilation:
     name: "Check_program_compilation"
-    runs-on: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: c
     needs: [check_repository_cleanliness]
     steps:
       - name: checkout
